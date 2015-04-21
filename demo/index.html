@@ -1,18 +1,76 @@
 <!DOCTYPE html>
 <html>
-	<head>
-		<title>jQuery Boilerplate</title>
-		<script src="http://ajax.googleapis.com/ajax/libs/jquery/2.0.0/jquery.min.js"></script>
-		<script src="../src/jquery.boilerplate.js"></script>
-	</head>
-	<body>
-		<div id="element"></div>
-		<script>
-			$(function() {
-				$("#element").defaultPluginName({
-					propertyName: "a custom value"
-				});
-			});
-		</script>
-	</body>
+<head>
+	<meta charset="utf-8">
+	<title>Bloop!&#8482;</title>
+	<meta name="viewport" content="width=device-width,initial-scale=1.0">
+	<link rel="shortcut icon" href="/favicon.ico">
+	<link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
+	<link rel="stylesheet" href="../src/jquery.bloop.css">
+	<style>
+		body { background-color: #efefef; }
+		#stage { background-color: #ffffff; border-radius: 5px; box-shadow: 2px 2px 5px #dddddd; position: relative; width: 100%; height: 600px; }
+		#bloop-1 { position: absolute; top: 40%; left: 35%; }
+		#bloop-2 { position: absolute; top: 35%; left: 65%;	}
+		.bloop-btn-wrap { position: absolute; bottom: 20px; left: 50%; -webkit-transform: translateX(-50%); transform: translateX(-50%); }
+	</style>
+</head>
+<body>
+	<div id="wrapper" class="container">
+	    <div class="header">
+	        <ul class="nav nav-pills pull-right">
+	            <!-- <li class="active"><a href="/">Bloop!&#8482; Away!</a></li> -->
+	        </ul>
+	        <h3 class="text-muted">Bloop!&#8482;</h3>
+	    </div>
+
+	    <hr>
+
+	    <div id="stage">
+
+	        <div id="bloop-1" class="bloop">
+	            <p>Why did Mozart kill all of his chickens?</p>
+	        </div>
+
+	        <div id="bloop-2" class="bloop">
+	            <p>Because when he asked them who was the greatest composer, all they would say was "Bach, Bach, Bach!"</p>
+	        </div>
+
+	        <div class="bloop-btn-wrap">
+	            <a href="/demo" id="bloop-btn" class="btn btn-lg btn-primary">Cliquez Moi!</a>
+	        </div>
+
+	    </div>
+
+	    <hr>
+
+	    <div class="footer">
+	        <p><span class="glyphicon glyphicon-heart"></span> from the Madg Dev Team</p>
+	    </div>
+
+	</div>
+
+
+	<script src="../bower_components/jquery/dist/jquery.js"></script>
+	<script src="../bower_components/jquery.easing/js/jquery.easing.js"></script>
+	<script src="../src/jquery.bloop.js"></script>
+
+	<script>
+	    $(function() {
+	        $('.bloop').bloop();
+
+	        $('#bloop-btn').one('click', function(ev) {
+	            ev.preventDefault();
+
+	            $('#bloop-1').delay(800).bloop('bloopIn');
+	            $('#bloop-2').delay(2000).bloop({
+	                action: 'bloopIn',
+	                css: {
+	                    backgroundColor: 'lightblue'
+	                }
+	            });
+	        });
+	    });
+	</script>
+</body>
 </html>

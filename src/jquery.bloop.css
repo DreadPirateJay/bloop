@@ -1,0 +1,28 @@
+.bloop {
+    background: #ececec;
+    border-radius: 10px;
+    box-shadow: 2px 2px 5px #dddddd;
+    font-size: 18px;
+    height: auto;
+    margin-left: -125px;
+    padding: 0;
+    width: 250px;
+}
+
+.bloop > p {
+    font-family: "Comic Sans MS", cursive, sans-serif;
+    padding: 8px 15px;
+}
+
+.bloop .triangle {
+    content: '';
+    position: absolute;
+    border-style: solid;
+    border-width: 15px 15px 0;
+    border-color: #ececec transparent;
+    display: block;
+    width: 0;
+    z-index: 1;
+    bottom: -15px;
+    left: 110px;
+}
