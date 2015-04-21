@@ -46,7 +46,8 @@
 	$.extend(Bloop.prototype, {
 		init: function () {
 
-			var $bloop = $(this.element);
+			var $bloop = $(this.element),
+				bgColor = $bloop.css('background-color');
 
 			$bloop
 			.append('<span class="triangle"></span>')
@@ -57,7 +58,7 @@
 			})
 			.find('.triangle')
 			.css({
-				borderColor: this.settings.backgroundColor + ' transparent'
+				borderColor: bgColor + ' transparent'
 			});
 
 			jQuery.easing.def = 'easeOutElastic';
@@ -65,15 +66,16 @@
 			return this;
 		},
 
-		bloop: function(bloopIn) {
-			var bloopIn = bloopIn || false,
-		    	$bloop = $(this.element);
+		bloop: function( options ) {
+			var $bloop = $(this.element);
+
+			$.extend(this.settings, options);
 
 		    $bloop
 		        .delay(this.settings.delay)
 		        .css(this.settings.css)
 		        .animate({
-		            opacity: (bloopIn ? 1 : 0)
+		            opacity: (this.settings.action === 'bloopIn' ? 1 : 0)
 		        }, {
 		            duration: this.settings.duration,
 		            step: function(now) {
